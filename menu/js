@@ -1,0 +1,15 @@
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        const headerHeight = document.querySelector('header').offsetHeight;
+
+        window.scrollTo({
+            top: targetSection.offsetTop - headerHeight,
+            behavior: 'smooth'
+        });
+    });
+});
+<script src="script.js"></script>
