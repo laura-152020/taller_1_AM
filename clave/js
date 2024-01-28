@@ -1,0 +1,72 @@
+var claveIngresada = '';
+var claveCorrecta = '';
+
+// Generar la clave correcta aleatoria
+claveCorrecta = generarClaveAleatoria();
+cambiarNumeros();
+
+// Función para generar una clave aleatoria de 4 dígitos
+function generarClaveAleatoria() {
+    var numeros = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    var clave = '';
+    for (var i = 0; i < 4; i++) {
+        var indice = Math.floor(Math.random() * numeros.length);
+        clave += numeros.splice(indice, 1);
+    }
+    return clave;
+}
+
+// Función para agregar un número a la clave ingresada
+function agregarNumero(numero) {
+    if (claveIngresada.length < 4) {
+        claveIngresada += numero;
+        actualizarCampoClave();
+    }
+}
+
+// Función para borrar un número de la clave ingresada
+function borrar() {
+    claveIngresada = claveIngresada.slice(0, -1);
+    actualizarCampoClave();
+}
+
+function verificarClave() {
+    // Verificar si la clave ingresada tiene exactamente 4 dígitos
+    if (claveIngresada.length !== 4) {
+        document.getElementById("mensaje").textContent = "Los dígitos son incorrectos, inténtalo de nuevo.";
+        return;
+    }
+    
+    // Mostrar mensaje de clave correcta y redirigir
+    document.getElementById("mensaje").textContent = "Clave correcta. Redireccionando...";
+    // Aquí podrías redirigir al usuario a la página de la sucursal virtual
+}
+
+// Función para actualizar el campo de la clave en la interfaz
+function actualizarCampoClave() {
+    document.getElementById("clave").value = claveIngresada;
+}
+
+// Función para cambiar los números aleatoriamente en la interfaz
+function cambiarNumeros() {
+    var numeros = document.querySelectorAll('.numero');
+    var numerosDisponibles = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    numeros.forEach(function(numero) {
+        var indice = Math.floor(Math.random() * numerosDisponibles.length);
+        numero.textContent = numerosDisponibles.splice(indice, 1);
+        numero.onmouseenter = function() {
+            document.querySelectorAll('.numero').forEach(function(num) {
+                num.textContent = '*';
+            });
+        };
+        numero.onmouseleave = function() {
+            document.querySelectorAll('.numero').forEach(function(num) {
+                num.textContent = num.dataset.valor;
+            });
+        };
+        numero.onclick = function() {
+            agregarNumero(numero.dataset.valor);
+        };
+        numero.dataset.valor = numero.textContent;
+    });
+}

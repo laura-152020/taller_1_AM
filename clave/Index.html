@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingreso Sucursal Virtual Bancolombia</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Ingreso Sucursal Virtual Bancolombia</h2>
+        <input type="password" id="clave" placeholder="Ingrese su clave" readonly>
+        <div class="teclado">
+            <div class="fila">
+                <button class="numero" onmouseover="ocultarNumero(this)" onmouseout="mostrarNumero(this)" onclick="agregarNumero(1)">1</button>
+                <button class="numero" onmouseover="ocultarNumero(this)" onmouseout="mostrarNumero(this)" onclick="agregarNumero(2)">2</button>
+                <button class="numero" onmouseover="ocultarNumero(this)" onmouseout="mostrarNumero(this)" onclick="agregarNumero(3)">3</button>
+            </div>
+            <div class="fila">
+                <button class="numero" onmouseover="ocultarNumero(this)" onmouseout="mostrarNumero(this)" onclick="agregarNumero(4)">4</button>
+                <button class="numero" onmouseover="ocultarNumero(this)" onmouseout="mostrarNumero(this)" onclick="agregarNumero(5)">5</button>
+                <button class="numero" onmouseover="ocultarNumero(this)" onmouseout="mostrarNumero(this)" onclick="agregarNumero(6)">6</button>
+            </div>
+            <div class="fila">
+                <button class="numero" onmouseover="ocultarNumero(this)" onmouseout="mostrarNumero(this)" onclick="agregarNumero(7)">7</button>
+                <button class="numero" onmouseover="ocultarNumero(this)" onmouseout="mostrarNumero(this)" onclick="agregarNumero(8)">8</button>
+                <button class="numero" onmouseover="ocultarNumero(this)" onmouseout="mostrarNumero(this)" onclick="agregarNumero(9)">9</button>
+            </div>
+            <div class="fila">
+                <button class="borrar" onclick="borrar()">Borrar</button>
+                <button class="numero" onmouseover="ocultarNumero(this)" onmouseout="mostrarNumero(this)" onclick="agregarNumero(0)">0</button>
+                <button class="verificar" onclick="verificarClave()">Ingresar</button>
+            </div>
+        </div>
+        <p id="mensaje"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
