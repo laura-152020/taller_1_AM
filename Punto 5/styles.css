@@ -1,0 +1,90 @@
+.topbar {
+    position: relative;
+    top: 0;
+    background: #000000;
+    left: 0;
+    z-index: 3;
+    width: 100%;
+    color: #fff;
+    font-weight: 700;
+    font-size: 17px;
+    display: flex;
+    -webkit-transition: margin-top 0.7s ease;
+    transition: margin-top 0.7s ease;
+    height: 88px;
+}
+.main-section {
+  text-align: center;
+  padding: 20px;
+  background-color: #87CEEB; /* Color de fondo azul claro, ajusta según tus preferencias */
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.input-container {
+  position: relative;
+  flex-grow: 1;
+}
+
+input {
+  width: calc(100% - 30px); /* Se resta 30px para dar espacio a la flecha */
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc; /* Borde minimalista */
+  border-radius: 5px; /* Esquinas redondeadas */
+}
+
+img {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 20px; /* Ajusta el tamaño de la flecha según sea necesario */
+  height: 20px;
+}
+
+.fade-in-list {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease, visibility 1s ease;
+}
+
+.fade-in-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  margin-bottom: 20px; /* Espacio entre elementos */
+}
+
+.fade-in-list.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.fade-in-list.show .fade-in-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 20px; /* Tamaño del título, ajusta según necesites */
+  margin-bottom: 10px; /* Espacio entre el título y la descripción */
+}
+
+.learn-more {
+  color: #007BFF; /* Color del texto del botón Learn more */
+  text-decoration: underline;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.learn-more img {
+  margin-left: 5px; /* Espacio entre el texto y la flecha */
+}
